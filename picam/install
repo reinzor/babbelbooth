@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Get script dir
+DEST_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source $DEST_DIR/setup
+
+echo "Downloading picam to tmp"
+wget https://github.com/iizukanao/picam/releases/download/v1.4.4/picam-1.4.4-binary.tar.xz
+echo "Untarring"
+tar xvf picam-1.4.4-binary.tar.xz
+echo "Copying executable to $DEST_DIR"
+cp picam-1.4.4-binary/picam $DEST_DIR
+echo "Removing temporary files"
+rm -rf picam-1.4.4-binary*
+echo "Done :)"
